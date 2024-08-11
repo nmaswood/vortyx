@@ -60,7 +60,7 @@ export default function Home() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
-  const addNode = (data: SarjNodeData) => {
+  const addNode = (data: VortyxNodeData) => {
     const newNode: CustomNode = {
       id: (nodes.length + 1).toString(),
       type: "custom",
@@ -120,7 +120,7 @@ interface CustomEdgeData {
   label: string;
 }
 
-type CustomNode = Node<SarjNodeData>;
+type CustomNode = Node<VortyxNodeData>;
 type CustomEdge = Edge<CustomEdgeData>;
 
 const initialNodes: CustomNode[] = [
@@ -337,7 +337,7 @@ const initialEdges: Edge[] = [
   },
 ];
 
-const typeToColor = (node: SarjNodeData): string | undefined => {
+const typeToColor = (node: VortyxNodeData): string | undefined => {
   switch (node.type) {
     case "workflow":
       return "#00B5AD";
@@ -354,9 +354,9 @@ const typeToColor = (node: SarjNodeData): string | undefined => {
   }
 };
 
-const CustomNodeComponent: React.FC<{ data: SarjNodeData }> = React.memo(
+const CustomNodeComponent: React.FC<{ data: VortyxNodeData }> = React.memo(
   ({ data }) => {
-    const RenderNode: React.FC<{ node: SarjNodeData }> = ({ node }) => {
+    const RenderNode: React.FC<{ node: VortyxNodeData }> = ({ node }) => {
       switch (node.type) {
         case "workflow":
           return (
@@ -550,7 +550,7 @@ const Flow: React.FC<{
 };
 
 const AddNodes: React.FC<{
-  addNode: (node: SarjNodeData) => void;
+  addNode: (node: VortyxNodeData) => void;
 }> = ({ addNode }) => {
   return (
     <Sheet modal={false}>
@@ -581,7 +581,7 @@ const AddNodes: React.FC<{
 };
 
 const AddCondition: React.FC<{
-  addNode: (node: SarjNodeData) => void;
+  addNode: (node: VortyxNodeData) => void;
 }> = ({ addNode }) => {
   const [type, setType] = useState<
     "revenue" | "years_of_operation" | "cash_flow_positive"
@@ -655,7 +655,7 @@ const AddCondition: React.FC<{
 };
 
 const AddTask: React.FC<{
-  addNode: (node: SarjNodeData) => void;
+  addNode: (node: VortyxNodeData) => void;
 }> = ({ addNode }) => {
   const [task, setTask] = useState<
     "notify-via-sms" | "notify-via-email" | "notify-via-call"
@@ -697,7 +697,7 @@ const AddTask: React.FC<{
 };
 
 const AddDecision: React.FC<{
-  addNode: (node: SarjNodeData) => void;
+  addNode: (node: VortyxNodeData) => void;
 }> = ({ addNode }) => {
   const [decision, setDecision] = useState<"approved" | "rejected">("approved");
 
@@ -829,7 +829,7 @@ type Decision = {
   value: "approved" | "rejected";
 };
 
-type SarjNodeData = WorkflowNode | DataInput | Condition | Task | Decision;
+type VortyxNodeData = WorkflowNode | DataInput | Condition | Task | Decision;
 
 function formatSAR(value: number) {
   return new Intl.NumberFormat("en-SA", {

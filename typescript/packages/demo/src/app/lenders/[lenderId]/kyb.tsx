@@ -18,7 +18,7 @@ import { Separator } from "@/components/ui/separator";
 
 export function KYBTab() {
   const companyData = {
-    name: "Sarj.ai",
+    name: "Vortyx.ai",
     founded: 2023,
     industry: "Artificial Intelligence",
     size: "5-10 employees",
@@ -27,13 +27,13 @@ export function KYBTab() {
     linkedinUrl: "https://www.linkedin.com/company/vortyx-ai",
     twitterHandle: "@vortyx_ai",
     description:
-      "Sarj.ai is a leading AI company in Saudi Arabia, specializing in natural language processing and machine learning solutions for the finance industry.",
+      "Vortyx.ai is a leading AI company in Saudi Arabia, specializing in natural language processing and machine learning solutions for the finance industry.",
     keyPeople: [
       { name: "Ahmed Al-Madan", title: "CEO & Co-founder" },
       { name: "Nasr Maswood", title: "CTO & Co-founder" },
     ],
     recentNews: [
-      { title: "Sarj.ai Secures $50M Series B Funding", date: "2024-06-15" },
+      { title: "Vortyx.ai Secures $50M Series B Funding", date: "2024-06-15" },
       {
         title: "Partnership with Major Saudi Bank Announced",
         date: "2024-05-22",

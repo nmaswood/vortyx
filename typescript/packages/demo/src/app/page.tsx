@@ -6,18 +6,18 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
-import { SarjHeader } from "./vortyx-header";
+import { VortyxHeader } from "./vortyx-header";
 
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-white">
-      <SarjHeader />
+      <VortyxHeader />
       <Separator className="mb-8" />
       <main className="mt-[10%] flex  grow justify-center px-4">
         <Card className="w-full max-w-md border-none shadow-none">
           <CardContent className="space-y-8">
             <h1 className="text-center text-3xl font-bold text-black">
-              Sarj.ai Lending Platform
+              Vortyx.ai Lending Platform
             </h1>
             <div className="space-y-6">
               <p className="text-center text-sm text-gray-600">

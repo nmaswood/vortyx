@@ -9,7 +9,7 @@ import {
   User,
 } from "lucide-react";
 
-import { SarjHeader } from "@/app/vortyx-header";
+import { VortyxHeader } from "@/app/vortyx-header";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -32,7 +32,7 @@ import { Separator } from "@/components/ui/separator";
 export default function ApplicationDetails() {
   return (
     <div className="flex max-h-full flex-col overflow-auto">
-      <SarjHeader />
+      <VortyxHeader />
       <Separator />
       <main className="container mx-auto flex max-h-full grow flex-col overflow-auto py-8">
         <Card className="mx-auto flex max-h-full w-full max-w-4xl flex-col overflow-auto">
@@ -65,7 +65,7 @@ export default function ApplicationDetails() {
               <CardContent className="grid grid-cols-2 gap-4">
                 <div>
                   <p className="text-sm text-gray-500">Company Name</p>
-                  <p className="font-medium">Sarj AI Technologies</p>
+                  <p className="font-medium">Vortyx AI Technologies</p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Registration Number</p>

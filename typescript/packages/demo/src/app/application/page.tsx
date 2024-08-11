@@ -40,7 +40,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/components/ui/use-toast";
 
-import { SarjHeader } from "../vortyx-header";
+import { VortyxHeader } from "../vortyx-header";
 
 const KEYWORDS = {
   commercial_registration: ["cr", "registration", "license", "commercial"],
@@ -97,7 +97,7 @@ export default function BusinessLoanForm() {
 
   return (
     <div className="flex h-full max-h-full flex-col overflow-auto">
-      <SarjHeader />
+      <VortyxHeader />
       <Separator className="mb-4" />
       <div className="flex h-full max-h-full flex-col items-center justify-center overflow-auto">
         <Card className="mx-auto flex h-auto max-h-full max-w-4xl flex-col overflow-auto">
@@ -113,7 +113,7 @@ export default function BusinessLoanForm() {
                   <Label htmlFor="companyName">Company Name</Label>
                   <Input
                     id="companyName"
-                    placeholder="Sarj AI Technologies"
+                    placeholder="Vortyx AI Technologies"
                     required
                   />
                 </div>

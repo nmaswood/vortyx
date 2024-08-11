@@ -10,25 +10,25 @@ import { Input } from "@/components/ui/input";
 
 const hardcodedQA = [
   {
-    question: "What was Sarj.ai's annual revenue in 2024?",
-    answer: "Sarj.ai's annual revenue in 2024 was SAR 26,107,500.",
+    question: "What was Vortyx.ai's annual revenue in 2024?",
+    answer: "Vortyx.ai's annual revenue in 2024 was SAR 26,107,500.",
   },
   {
-    question: "What is Sarj.ai's commercial registration number?",
-    answer: "Sarj.ai's commercial registration number is 1010123456.",
+    question: "What is Vortyx.ai's commercial registration number?",
+    answer: "Vortyx.ai's commercial registration number is 1010123456.",
   },
   {
     question: "What was the closing balance for Q2 2024?",
     answer: "The closing balance for Q2 2024 was SAR 2,300,000.",
   },
   {
-    question: "What is Sarj.ai's main business activity?",
+    question: "What is Vortyx.ai's main business activity?",
     answer:
-      "According to the commercial registration, Sarj.ai's main business activity is Software Development and AI Services.",
+      "According to the commercial registration, Vortyx.ai's main business activity is Software Development and AI Services.",
   },
   {
-    question: "How much tax did Sarj.ai pay for the 2023 tax year?",
-    answer: "Sarj.ai paid SAR 3,100,000 in taxes for the 2023 tax year.",
+    question: "How much tax did Vortyx.ai pay for the 2023 tax year?",
+    answer: "Vortyx.ai paid SAR 3,100,000 in taxes for the 2023 tax year.",
   },
 ];
 
@@ -54,7 +54,7 @@ export function ChatTab() {
     setMessages([
       {
         type: "bot",
-        content: "Hello! I'm the Sarj AI Assistant. How can I help you today?",
+        content: "Hello! I'm the Vortyx AI Assistant. How can I help you today?",
       },
     ]);
     setSuggestedQuestions(hardcodedQA.map((qa) => qa.question));
@@ -73,11 +73,11 @@ export function ChatTab() {
         );
         let botResponse = matchedQA
           ? matchedQA.answer
-          : "I'm sorry, I don't have enough context to answer that question. Is there anything else I can help you with regarding Sarj.ai's financial information or business activities?";
+          : "I'm sorry, I don't have enough context to answer that question. Is there anything else I can help you with regarding Vortyx.ai's financial information or business activities?";
 
         if (matchedQA) {
           botResponse +=
-            "\n\nAI Insight: Based on this information, Sarj.ai appears to be a rapidly growing tech company with a strong focus on AI and software development. Their financial performance indicates a healthy business trajectory.";
+            "\n\nAI Insight: Based on this information, Vortyx.ai appears to be a rapidly growing tech company with a strong focus on AI and software development. Their financial performance indicates a healthy business trajectory.";
         }
 
         setMessages((prevMessages) => [
@@ -109,7 +109,7 @@ export function ChatTab() {
   return (
     <Card className="flex h-[calc(100vh-200px)] flex-col">
       <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle>Chat with Sarj AI Assistant</CardTitle>
+        <CardTitle>Chat with Vortyx AI Assistant</CardTitle>
         <Button variant="outline" size="sm" onClick={handleReset}>
           <RefreshCcw className="mr-2 size-4" />
           Reset Chat
@@ -189,7 +189,7 @@ export function ChatTab() {
       </div>
       <div className="border-t p-2 text-center text-sm text-muted-foreground">
         <Sparkles className="mr-1 inline-block size-4" />
-        Powered by Sarj AI Technology
+        Powered by Vortyx AI Technology
       </div>
     </Card>
   );

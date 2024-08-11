@@ -42,14 +42,14 @@ export const DisplayTabs: React.FC = () => {
       </div>
       <nav className="flex h-full flex-col justify-between gap-1 p-2">
         <div className={cn("flex flex-col gap-1")}>
-          <SarjLink
+          <VortyxLink
             Icon={Building2}
             title="Companies"
             href="/lenders"
             selected={tab === "/"}
             disabled={false}
           />
-          <SarjLink
+          <VortyxLink
             Icon={BarChart}
             title="Rules"
             href="/lenders/rules"
@@ -97,7 +97,7 @@ const SettingsModal: React.FC = () => {
         <DialogHeader>
           <DialogTitle>Settings</DialogTitle>
           <DialogDescription>
-            Configure your Sarj.ai experience
+            Configure your Vortyx.ai experience
           </DialogDescription>
         </DialogHeader>
         <div className="space-y-4">
@@ -169,7 +169,7 @@ const NotificationsModal: React.FC = () => {
   );
 };
 
-const SarjLink: React.FC<{
+const VortyxLink: React.FC<{
   Icon: LucideIcon;
   title: string;
   href: string;

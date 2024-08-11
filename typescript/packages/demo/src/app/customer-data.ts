@@ -13,7 +13,7 @@ export interface Transaction {
   aiCategory: string;
 }
 
-export interface SarjDocument {
+export interface VortyxDocument {
   id: string;
   date: Date;
   name: string;
@@ -46,12 +46,12 @@ export interface Customer {
     ebitda: number;
   }[];
   transactions: Transaction[];
-  documents: SarjDocument[];
+  documents: VortyxDocument[];
 }
 export const _CUSTOMERS: Customer[] = [
   {
     id: "vortyx",
-    name: "Sarj.ai",
+    name: "Vortyx.ai",
     lowerCaseName: "vortyx.ai",
     email: "ahmed@vortyx.ai",
     status: "approved" as const,
@@ -109,7 +109,7 @@ export const _CUSTOMERS: Customer[] = [
         description: "Annual Financial Statement",
         signedUrl: "https://storage.googleapis.com/vortyx-sandbox-public/fin.pdf",
         parsedData: [
-          { value: "Sarj.ai", label: "Company Name" },
+          { value: "Vortyx.ai", label: "Company Name" },
           { value: "SAR 26,107,500", label: "Annual Revenue" },
           { value: "SAR 2,360,700", label: "Net Profit" },
           { value: "SAR 15,000,000", label: "Total Assets" },
@@ -117,7 +117,7 @@ export const _CUSTOMERS: Customer[] = [
         ],
         questions: [
           {
-            question: "What was Sarj.ai's annual revenue in 2024?",
+            question: "What was Vortyx.ai's annual revenue in 2024?",
             answer: "SAR 26,107,500",
           },
           {
@@ -126,7 +126,7 @@ export const _CUSTOMERS: Customer[] = [
           },
           {
             question:
-              "What is the total asset value of Sarj.ai according to the 2024 financial statement?",
+              "What is the total asset value of Vortyx.ai according to the 2024 financial statement?",
             answer: "SAR 15,000,000",
           },
         ],
@@ -140,7 +140,7 @@ export const _CUSTOMERS: Customer[] = [
         description: "Commercial Registration",
         signedUrl: "https://storage.googleapis.com/vortyx-sandbox-public/fin.pdf",
         parsedData: [
-          { value: "Sarj.ai", label: "Company Name" },
+          { value: "Vortyx.ai", label: "Company Name" },
           { value: "1010123456", label: "CR Number" },
           {
             value: "123 Tech Hub, Riyadh Digital City, Saudi Arabia",
@@ -154,16 +154,16 @@ export const _CUSTOMERS: Customer[] = [
         ],
         questions: [
           {
-            question: "What is Sarj.ai's commercial registration number?",
+            question: "What is Vortyx.ai's commercial registration number?",
             answer: "1010123456",
           },
           {
-            question: "When does Sarj.ai's commercial registration expire?",
+            question: "When does Vortyx.ai's commercial registration expire?",
             answer: "January 15, 2025",
           },
           {
             question:
-              "What is the main business activity of Sarj.ai according to the CR?",
+              "What is the main business activity of Vortyx.ai according to the CR?",
             answer: "Software Development and AI Services",
           },
         ],
@@ -178,7 +178,7 @@ export const _CUSTOMERS: Customer[] = [
         description: "Q2 2024 Bank Statement",
         signedUrl: "https://storage.googleapis.com/vortyx-sandbox-public/fin.pdf",
         parsedData: [
-          { value: "Sarj.ai", label: "Account Name" },
+          { value: "Vortyx.ai", label: "Account Name" },
           { value: "SA2969101010", label: "IBAN" },
           { value: "SAR 2,400,000", label: "Opening Balance" },
           { value: "SAR 2,300,000", label: "Closing Balance" },
@@ -187,7 +187,7 @@ export const _CUSTOMERS: Customer[] = [
         ],
         questions: [
           {
-            question: "What is Sarj.ai's IBAN?",
+            question: "What is Vortyx.ai's IBAN?",
             answer: "SA2969101010",
           },
           {
@@ -209,7 +209,7 @@ export const _CUSTOMERS: Customer[] = [
         description: "2023 Tax Return",
         signedUrl: "https://storage.googleapis.com/vortyx-sandbox-public/fin.pdf",
         parsedData: [
-          { value: "Sarj.ai", label: "Company Name" },
+          { value: "Vortyx.ai", label: "Company Name" },
           { value: "300000012345", label: "Tax Identification Number" },
           { value: "SAR 20,500,000", label: "Taxable Income" },
           { value: "SAR 3,075,000", label: "Total Tax Due" },
@@ -217,15 +217,15 @@ export const _CUSTOMERS: Customer[] = [
         ],
         questions: [
           {
-            question: "What is Sarj.ai's Tax Identification Number?",
+            question: "What is Vortyx.ai's Tax Identification Number?",
             answer: "300000012345",
           },
           {
-            question: "What was Sarj.ai's taxable income for 2023?",
+            question: "What was Vortyx.ai's taxable income for 2023?",
             answer: "SAR 20,500,000",
           },
           {
-            question: "How much tax did Sarj.ai pay for the 2023 tax year?",
+            question: "How much tax did Vortyx.ai pay for the 2023 tax year?",
             answer: "SAR 3,100,000",
           },
         ],
