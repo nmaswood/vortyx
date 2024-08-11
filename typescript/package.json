@@ -1,0 +1,19 @@
+{
+  "name": "vortyx",
+  "packageManager": "yarn@4.4.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "yarn workspaces foreach -tvpA run build",
+    "build:api": "yarn workspaces foreach -tvpA --exclude @vortyx/app run build",
+    "fix": "yarn workspaces foreach -vpA run fix",
+    "check": "yarn workspaces foreach -vpA run check",
+    "test": "yarn workspaces foreach -vpA run test",
+    "clean": "yarn workspaces foreach -vpA run clean && yarn clean::deps",
+    "clean::dist": "yarn workspaces foreach -vpA run clean::dist",
+    "clean::deps": "rm -rf node_modules",
+    "upgrade-all": "yarn up '**'"
+  }
+}

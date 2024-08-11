@@ -1,0 +1,50 @@
+{
+  "name": "@vortyx/precedent-node",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "packageManager": "yarn@3.3.0",
+  "private": true,
+  "devDependencies": {
+    "@types/eslint": "^8.56.11",
+    "@types/prettier": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --build -w",
+    "test": "vitest --poolOptions.threads.singleThread  src/tests",
+    "test:ci": "vitest run --poolOptions.threads.singleThread  src/tests",
+    "fix": "yarn fix::lint; yarn fix::format",
+    "fix::lint": "eslint . --ext .ts --fix",
+    "fix::format": "prettier --write .",
+    "check": "yarn check::lint && yarn  check::format",
+    "check::lint": "eslint . --ext .ts",
+    "check::format": "prettier --check .",
+    "clean": "yarn clean::dist",
+    "clean::dist": "rm -rf tsconfig.tsbuildinfo dist"
+  },
+  "dependencies": {
+    "@google-cloud/documentai": "^8.8.0",
+    "@google-cloud/pubsub": "^4.5.0",
+    "@google-cloud/storage": "^7.12.1",
+    "@google-cloud/vertexai": "^1.4.0",
+    "@tabby_ai/hijri-converter": "^1.0.5",
+    "@vortyx/precedent-iso": "workspace:^",
+    "axios": "^1.7.3",
+    "cheerio": "^1.0.0-rc.12",
+    "mime-types": "^2.1.35",
+    "openai": "^4.55.1",
+    "pino": "^9.3.2",
+    "slonik": "^46.0.1",
+    "tempy": "^3.1.0",
+    "zod": "^3.23.8",
+    "zod-to-json-schema": "^3.23.2"
+  }
+}
