@@ -15,17 +15,6 @@ define YARN_BUILD
 	yarn workspaces foreach -Atvp --include $(1) $(foreach ws,$(WORKSPACE_PRECEDENTS),--include $(ws)) run build
 endef
 
-define YARN_INSTALL_EIGHT
-	echo "Starting install for $(1)"
-	$(YARN_SET_VERSION)
-	$(YARN_CONFIG_LINKER)
-	yarn workspaces focus $(1)
-endef
-
-define YARN_BUILD_EIGHT
-	echo "Starting build for $(1)"
-	yarn workspaces foreach -Atvp --include $(1) $(foreach ws,$(WORKSPACE_PRECEDENTS_EIGHT),--include $(ws)) run build
-endef
 
 .PHONY: install-% build-% install-eight build-eight
 
