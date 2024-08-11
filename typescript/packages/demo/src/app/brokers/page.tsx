@@ -39,6 +39,8 @@ import {
 } from "@/components/ui/table";
 
 import { CUSTOMERS, LoanStatus } from "../customer-data";
+import { cx } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
 export default function CompanyDashboard() {
   const router = useRouter();
@@ -68,7 +70,7 @@ export default function CompanyDashboard() {
           <div className="flex items-center justify-between border-b p-4">
             <div className="flex items-center space-x-2">
               <span className="text-sm text-gray-500">
-                {CUSTOMERS.length} customers
+                {CUSTOMERS.length} brokers
               </span>
               <Button variant="ghost" size="sm">
                 <Download size={16} className="text-gray-400" />
@@ -98,28 +100,35 @@ export default function CompanyDashboard() {
             <TableHeader>
               <TableRow>
                 <TableHead>Company name</TableHead>
-                <TableHead>Email</TableHead>
-                <TableHead>Loan status</TableHead>
+                <TableHead>Broker name</TableHead>
+                <TableHead>Deal status</TableHead>
                 <TableHead>Last update</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {CUSTOMERS.filter(
                 (c) => strippedInput === "" || c.lowerCaseName.includes(input),
-              ).map(({ id, status, lastUpdate, name, email }, index) => (
-                <TableRow
-                  key={index}
-                  onClick={() => router.push(`/lenders/${id}`)}
-                  className="cursor-pointer"
-                >
-                  <TableCell className="font-medium">{name}</TableCell>
-                  <TableCell>{email}</TableCell>
-                  <TableCell>
-                    <StatusBadge status={status} />
-                  </TableCell>
-                  <TableCell>{lastUpdate.toLocaleDateString()}</TableCell>
-                </TableRow>
-              ))}
+              ).map(
+                (
+                  { id, status, lastUpdate, name, brokerName: email, disabled },
+                  index,
+                ) => (
+                  <TableRow
+                    key={index}
+                    onClick={
+                      disabled ? undefined : () => router.push(`/brokers/${id}`)
+                    }
+                    className={cn(!disabled && "cursor-pointer")}
+                  >
+                    <TableCell className="font-medium">{name}</TableCell>
+                    <TableCell>{email}</TableCell>
+                    <TableCell>
+                      <StatusBadge status={status} />
+                    </TableCell>
+                    <TableCell>{lastUpdate.toLocaleDateString()}</TableCell>
+                  </TableRow>
+                ),
+              )}
             </TableBody>
           </Table>
         </div>

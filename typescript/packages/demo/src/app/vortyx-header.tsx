@@ -1,13 +1,17 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export const VortyxHeader = () => {
   return (
-    <div className="relative flex w-full flex-row justify-center gap-6 px-8 py-3 md:justify-between">
-      <div className="flex flex-row gap-3">
-        <Link href="/">
-          <h2 className="text-xl font-semibold">vortyx.ai</h2>
-        </Link>
-      </div>
+    <div className="relative flex w-full flex-row justify-center gap-6 px-4 py-4 md:justify-between h-[60px]">
+      <Link href="/">
+        <Image
+          src="/logo-clipped.png"
+          alt="Vortyx Logo"
+          width={100}
+          height={100}
+        />
+      </Link>
     </div>
   );
 };

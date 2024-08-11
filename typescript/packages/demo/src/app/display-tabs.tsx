@@ -1,5 +1,5 @@
 "use client";
-import { BarChart, Bell, Building2, LucideIcon, Settings } from "lucide-react";
+import { Bell, Building2, LucideIcon, Settings } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -23,7 +23,7 @@ import { cn } from "@/lib/utils";
 
 import { SupportModal } from "./application/support-modal";
 
-export const ZPathname = z.enum(["/lenders/rules", "/"]);
+export const ZPathname = z.enum(["/brokers/rules", "/"]);
 
 export const DisplayTabs: React.FC = () => {
   const pathname = usePathname();
@@ -33,10 +33,15 @@ export const DisplayTabs: React.FC = () => {
 
   return (
     <div className="flex h-full flex-col">
-      <div className="relative flex w-full flex-row justify-center gap-6 px-8 py-3 md:justify-between">
-        <div className="flex flex-row items-center gap-3">
+      <div className="relative flex w-full flex-row justify-center gap-6 px-4 py-4 md:justify-between">
+        <div className="flex flex-row  gap-3">
           <Link href="/">
-            <h2 className="text-xl font-semibold">vortyx.ai</h2>
+            <Image
+              src="/logo-clipped.png"
+              alt="Vortyx Logo"
+              width={100}
+              height={100}
+            />
           </Link>
         </div>
       </div>
@@ -45,15 +50,8 @@ export const DisplayTabs: React.FC = () => {
           <VortyxLink
             Icon={Building2}
             title="Companies"
-            href="/lenders"
+            href="/brokers"
             selected={tab === "/"}
-            disabled={false}
-          />
-          <VortyxLink
-            Icon={BarChart}
-            title="Rules"
-            href="/lenders/rules"
-            selected={tab === "/lenders/rules"}
             disabled={false}
           />
         </div>
@@ -67,17 +65,17 @@ export const DisplayTabs: React.FC = () => {
         <div className="flex items-center gap-4 p-3">
           <Avatar className="hidden sm:flex">
             <Image
-              src="/ahmed.jpeg"
+              src="/samiah.jpeg"
               width={40}
               height={40}
               alt="Avatar"
               className="aspect-square size-full"
             />
-            <AvatarFallback>AA</AvatarFallback>
+            <AvatarFallback>SF</AvatarFallback>
           </Avatar>
           <div className="grid gap-1">
-            <p className="text-sm font-medium leading-none">Ahmed AlMadan</p>
-            <p className="text-sm text-muted-foreground">ahmed@vortyx.ai</p>
+            <p className="text-sm font-medium leading-none">Samiah Fatimah</p>
+            <p className="text-sm text-muted-foreground">samiah@vortyx.ai</p>
           </div>
         </div>
       </div>
@@ -120,17 +118,19 @@ const NotificationsModal: React.FC = () => {
     {
       id: 1,
       title: "New AI Insight Available",
-      description: "Check out the latest risk analysis for Company XYZ.",
+      description:
+        "Check out the latest risk analysis for the Kumo Beauty Deal.",
     },
     {
       id: 2,
-      title: "Loan Application Update",
-      description: "The status of application #1234 has changed.",
+      title: "Deal Update",
+      description: "The status of deal #1234 has changed.",
     },
     {
       id: 3,
       title: "System Maintenance",
-      description: "Scheduled maintenance on July 30th, 2:00 AM - 4:00 AM GMT.",
+      description:
+        "Scheduled maintenance on September 30th, 2:00 AM - 4:00 AM GMT.",
     },
   ];
 

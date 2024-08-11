@@ -43,7 +43,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { VortyxHeader } from "../vortyx-header";
 
 const KEYWORDS = {
-  commercial_registration: ["cr", "registration", "license", "commercial"],
+  business_summary: ["business", "summary"],
   financial_statements: [
     "financial",
     "statement",
@@ -103,7 +103,7 @@ export default function BusinessLoanForm() {
         <Card className="mx-auto flex h-auto max-h-full max-w-4xl flex-col overflow-auto">
           <CardHeader>
             <CardTitle className="text-center text-2xl font-bold">
-              Business Loan Application
+              Business Submission Application
             </CardTitle>
           </CardHeader>
           <CardContent className="flex max-h-full flex-col overflow-auto">
@@ -113,13 +113,13 @@ export default function BusinessLoanForm() {
                   <Label htmlFor="companyName">Company Name</Label>
                   <Input
                     id="companyName"
-                    placeholder="Vortyx AI Technologies"
+                    placeholder="Kumo Beauty, Inc"
                     required
                   />
                 </div>
                 <div>
                   <Label htmlFor="registrationNumber">
-                    Commercial Registration Number
+                    Registration Number
                   </Label>
                   <Input
                     id="registrationNumber"
@@ -131,24 +131,20 @@ export default function BusinessLoanForm() {
                   <Label htmlFor="contactPerson">Contact Person</Label>
                   <Input
                     id="contactPerson"
-                    placeholder="Ahmed Almadan"
+                    placeholder="Jessica Hoyt"
                     required
                   />
                 </div>
                 <div>
                   <Label htmlFor="position">Position in Company</Label>
-                  <Input
-                    id="position"
-                    placeholder="Chief Financial Officer"
-                    required
-                  />
+                  <Input id="position" placeholder="Owner" required />
                 </div>
                 <div>
                   <Label htmlFor="email">Business Email</Label>
                   <Input
                     id="email"
                     type="email"
-                    placeholder="finance@vortyx.ai"
+                    placeholder="jessica@kumo.com"
                     required
                   />
                 </div>
@@ -162,45 +158,33 @@ export default function BusinessLoanForm() {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="loanAmount">
-                    Requested Loan Amount (SAR)
+                  <Label htmlFor="sde">
+                    Seller Discretionary Earnings (SDE) ($)
                   </Label>
-                  <Input
-                    id="loanAmount"
-                    type="number"
-                    placeholder="5000000"
-                    required
-                  />
+                  <Input id="sde" type="number" placeholder="180000" required />
                 </div>
                 <div>
-                  <Label htmlFor="annualRevenue">Annual Revenue (SAR)</Label>
+                  <Label htmlFor="annualRevenue">Annual Revenue ($)</Label>
                   <Input
                     id="annualRevenue"
                     type="number"
-                    placeholder="10000000"
+                    placeholder="759000"
                     required
                   />
                 </div>
                 <div className="sm:col-span-2">
-                  <Label htmlFor="loanPurpose">Loan Purpose</Label>
+                  <Label htmlFor="reasonForSelling">Reason for Selling</Label>
                   <Select required>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select loan purpose" />
+                      <SelectValue placeholder="Select reason for selling" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="expansion">
-                        Business Expansion
-                      </SelectItem>
-                      <SelectItem value="equipment">
-                        Equipment Purchase
-                      </SelectItem>
-                      <SelectItem value="working_capital">
-                        Working Capital
-                      </SelectItem>
-                      <SelectItem value="refinancing">
-                        Debt Refinancing
-                      </SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
+                      <SelectItem value="relocating">Relocating</SelectItem>
+                      <SelectItem value="health">Health</SelectItem>
+                      <SelectItem value="retirement">Retirement</SelectItem>
+                      <SelectItem value="burnout">Burnout</SelectItem>
+                      <SelectItem value="new_business">New Business</SelectItem>
+                      <SelectItem value="other">Other Reason</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -210,7 +194,7 @@ export default function BusinessLoanForm() {
                 <h3 className="text-lg font-semibold">Required Documents</h3>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   {[
-                    "Commercial Registration",
+                    "Business Summary",
                     "Financial Statements",
                     "Bank Statements",
                     "Tax Returns",

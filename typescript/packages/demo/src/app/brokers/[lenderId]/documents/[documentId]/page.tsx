@@ -83,11 +83,11 @@ export default function CustomerDetailPage({
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink href="/lenders">Companies</BreadcrumbLink>
+              <BreadcrumbLink href="/brokers">Companies</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink href={`/lenders/${data.id}`}>
+              <BreadcrumbLink href={`/brokers/${data.id}`}>
                 {data.name}
               </BreadcrumbLink>
             </BreadcrumbItem>

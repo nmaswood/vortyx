@@ -73,7 +73,6 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { ChatTab } from "./chat-tab";
 import { KYBTab } from "./kyb";
 import Tabular from "./tabular";
-import { TransactionTab } from "./transactions";
 
 type PageProps = {
   params: {
@@ -113,7 +112,7 @@ export default function CustomerDetailPage(props: PageProps) {
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink href="/lenders">Companies</BreadcrumbLink>
+              <BreadcrumbLink href="/brokers">Companies</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
@@ -131,8 +130,6 @@ export default function CustomerDetailPage(props: PageProps) {
       >
         <TabsList className="w-fit">
           <TabsTrigger value="kyb">Overview</TabsTrigger>
-          <TabsTrigger value="insights">Credit Insights</TabsTrigger>
-          <TabsTrigger value="transactions">Transactions</TabsTrigger>
           <TabsTrigger value="documents">Documents</TabsTrigger>
           <TabsTrigger value="analysis">Analysis</TabsTrigger>
           <TabsTrigger value="chat">Chat</TabsTrigger>
@@ -175,7 +172,7 @@ export default function CustomerDetailPage(props: PageProps) {
                         className="cursor-pointer"
                         onClick={() => {
                           router.push(
-                            `/lenders/${data.id}/documents/${doc.id}`,
+                            `/brokers/${data.id}/documents/${doc.id}`,
                           );
                         }}
                       >
@@ -199,216 +196,6 @@ export default function CustomerDetailPage(props: PageProps) {
               </Table>
             </CardContent>
           </Card>
-        </TabsContent>
-
-        <TabsContent
-          value="insights"
-          className="flex max-h-full flex-col gap-2 overflow-auto"
-        >
-          <div className="flex">
-            <ToggleGroup
-              type="single"
-              value={viewMode}
-              onValueChange={(value) => {
-                if (value) {
-                  setViewMode(value as "charts" | "table");
-                }
-              }}
-            >
-              <ToggleGroupItem value="charts">Charts</ToggleGroupItem>
-              <ToggleGroupItem value="table">Tables</ToggleGroupItem>
-            </ToggleGroup>
-          </div>
-          {viewMode === "charts" && (
-            <div className="flex flex-col gap-4">
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-sm font-medium text-muted-foreground">
-                      Revenue daily average
-                    </CardTitle>
-                    <CardTitle className="text-2xl font-bold">$4,160</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-xs text-muted-foreground">
-                      Last 90 days
-                    </p>
-                    <span className="text-sm font-medium text-green-600">
-                      +3.4%
-                    </span>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-sm font-medium text-muted-foreground">
-                      Net operating cashflow daily average
-                    </CardTitle>
-                    <CardTitle className="text-2xl font-bold">-$819</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-xs text-muted-foreground">
-                      Last 90 days
-                    </p>
-                    <span className="text-sm font-medium text-red-600">
-                      -0.4%
-                    </span>
-                  </CardContent>
-                </Card>
-              </div>
-
-              <Card>
-                <CardHeader className="flex flex-row items-center justify-between">
-                  <CardTitle>Bank statement summary</CardTitle>
-                  <p className="text-sm text-muted-foreground">05/23/2023</p>
-                </CardHeader>
-                <CardContent>
-                  <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-3">
-                    <Card>
-                      <CardHeader>
-                        <CardTitle className="text-sm font-medium">
-                          Total revenue
-                        </CardTitle>
-                        <CardTitle className="text-2xl font-bold">
-                          98K
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-xs text-muted-foreground">
-                          Last month
-                        </p>
-                        <span className="rounded bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800">
-                          Stable
-                        </span>
-                      </CardContent>
-                    </Card>
-                    <Card>
-                      <CardHeader>
-                        <CardTitle className="text-sm font-medium">
-                          Gross profit
-                        </CardTitle>
-                        <CardTitle className="text-2xl font-bold">
-                          94K
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-xs text-muted-foreground">
-                          Last month
-                        </p>
-                        <span className="rounded bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800">
-                          Stable
-                        </span>
-                      </CardContent>
-                    </Card>
-                    <Card>
-                      <CardHeader>
-                        <CardTitle className="text-sm font-medium">
-                          EBITDA
-                        </CardTitle>
-                        <CardTitle className="text-2xl font-bold">
-                          -120K
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-xs text-muted-foreground">
-                          Last month
-                        </p>
-                        <span className="rounded bg-red-100 px-2 py-0.5 text-xs font-medium text-red-800">
-                          Negative
-                        </span>
-                      </CardContent>
-                    </Card>
-                  </div>
-                  <div className="h-[300px] w-full">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <LineChart data={data.monthlyData}>
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="month" />
-                        <YAxis />
-                        <Tooltip />
-                        <Line
-                          type="monotone"
-                          dataKey="revenue"
-                          stroke="#8884d8"
-                        />
-                        <Line
-                          type="monotone"
-                          dataKey="ebitda"
-                          stroke="#82ca9d"
-                        />
-                      </LineChart>
-                    </ResponsiveContainer>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader className="flex flex-row items-center justify-between">
-                  <CardTitle>Monthly cash balance</CardTitle>
-                  <p className="text-sm text-muted-foreground">05/23/2023</p>
-                </CardHeader>
-                <CardContent>
-                  <div className="h-[300px] w-full">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <AreaChart data={data.monthlyCashBalanceData}>
-                        <defs>
-                          <linearGradient
-                            id="colorBalance"
-                            x1="0"
-                            y1="0"
-                            x2="0"
-                            y2="1"
-                          >
-                            <stop
-                              offset="5%"
-                              stopColor="#8884d8"
-                              stopOpacity={0.8}
-                            />
-                            <stop
-                              offset="95%"
-                              stopColor="#8884d8"
-                              stopOpacity={0}
-                            />
-                          </linearGradient>
-                        </defs>
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="month" />
-                        <YAxis />
-                        <Tooltip
-                          content={({ active, payload, label }) => {
-                            const firstPayload = payload?.[0]?.value;
-
-                            if (active && firstPayload) {
-                              return (
-                                <div className="rounded border border-border bg-background p-2 shadow-md">
-                                  <p className="font-semibold">{label}</p>
-                                  <p className="text-primary">
-                                    Balance: ${firstPayload.toLocaleString()}
-                                  </p>
-                                </div>
-                              );
-                            }
-                            return null;
-                          }}
-                        />
-                        <Area
-                          type="monotone"
-                          dataKey="balance"
-                          stroke="#8884d8"
-                          fillOpacity={1}
-                          fill="url(#colorBalance)"
-                        />
-                      </AreaChart>
-                    </ResponsiveContainer>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          )}
-          {viewMode === "table" && <Tabular />}
-        </TabsContent>
-
-        <TabsContent value="transactions">
-          <TransactionTab customer={data} />
         </TabsContent>
 
         <TabsContent value="kyb">
@@ -633,7 +420,7 @@ function UploadDialog() {
 const EditCustomerDialog = ({ customer }: { customer: Customer }) => {
   const [editedCustomer, setEditedCustomer] = useState({
     name: customer.name,
-    email: customer.email,
+    email: customer.brokerName,
   });
 
   return (

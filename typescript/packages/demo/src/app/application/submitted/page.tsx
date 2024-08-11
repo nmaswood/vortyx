@@ -38,7 +38,7 @@ export default function ApplicationDetails() {
         <Card className="mx-auto flex max-h-full w-full max-w-4xl flex-col overflow-auto">
           <CardHeader>
             <CardTitle className="text-center text-2xl">
-              Business Loan Application Details
+              Business Sale Application Details
             </CardTitle>
           </CardHeader>
           <CardContent className="flex max-h-full flex-col space-y-6 overflow-auto">
@@ -65,7 +65,7 @@ export default function ApplicationDetails() {
               <CardContent className="grid grid-cols-2 gap-4">
                 <div>
                   <p className="text-sm text-gray-500">Company Name</p>
-                  <p className="font-medium">Vortyx AI Technologies</p>
+                  <p className="font-medium">Kumo Beauty, Inc</p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Registration Number</p>
@@ -73,19 +73,19 @@ export default function ApplicationDetails() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Contact Person</p>
-                  <p className="font-medium">Ahmed Almadan</p>
+                  <p className="font-medium">Jessica Hoyt</p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Position</p>
-                  <p className="font-medium">Chief Financial Officer</p>
+                  <p className="font-medium">Owner</p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Business Email</p>
-                  <p className="font-medium">finance@vortyx.ai</p>
+                  <p className="font-medium">jessica@kumo.com</p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Business Phone</p>
-                  <p className="font-medium">011xxxxxxx</p>
+                  <p className="font-medium">011xxxxxx</p>
                 </div>
               </CardContent>
             </Card>
@@ -93,32 +93,34 @@ export default function ApplicationDetails() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center text-xl">
-                  <DollarSign className="mr-2" /> Loan Details
+                  <DollarSign className="mr-2" /> Business Details
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <p className="text-sm text-gray-500">Requested Loan Amount</p>
+                  <p className="text-sm text-gray-500">
+                    Seller Discretionary Earnings
+                  </p>
                   <p className="text-2xl font-medium text-green-600">
-                    5,000,000 SAR
+                    $180,000
                   </p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Annual Revenue</p>
-                  <p className="font-medium">10,000,000 SAR</p>
+                  <p className="font-medium">$759,000</p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">Loan Purpose</p>
+                  <p className="text-sm text-gray-500">Reason for Selling</p>
                   <Badge variant="secondary" className="mt-1">
-                    Business Expansion
+                    Retiring
                   </Badge>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">Business Plan Summary</p>
+                  <p className="text-sm text-gray-500">Business Summary</p>
                   <p className="mt-1 font-medium">
-                    We are seeking a loan to expand our AI technology services
-                    by opening a new research and development center in
-                    Riyadh&apos;s technology hub.
+                    Kumo Beauty sells Korean beauty and health care products for
+                    women. The owner is retiring and wants to list the business
+                    for sale in NYC.
                   </p>
                 </div>
               </CardContent>
@@ -133,12 +135,10 @@ export default function ApplicationDetails() {
               <CardContent>
                 <ul className="grid grid-cols-2 gap-2">
                   {[
-                    "Commercial Registration",
-                    "Financial Statements",
+                    "Business Summary",
+                    "Financial Documents",
                     "Bank Statements",
                     "Tax Returns",
-                    "Business Plan",
-                    "Collateral Documents",
                   ].map((doc) => (
                     <li key={doc} className="flex items-center">
                       <CheckCircle2 className="mr-2 text-green-500" size={16} />

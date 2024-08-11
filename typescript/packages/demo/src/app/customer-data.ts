@@ -32,7 +32,7 @@ export interface Customer {
   id: string;
   name: string;
   lowerCaseName: string;
-  email: string;
+  brokerName: string;
   status: LoanStatus;
   docs: number | string;
   lastUpdate: Date;
@@ -47,14 +47,17 @@ export interface Customer {
   }[];
   transactions: Transaction[];
   documents: VortyxDocument[];
+  disabled: boolean;
 }
+
 export const _CUSTOMERS: Customer[] = [
   {
-    id: "vortyx",
-    name: "Vortyx.ai",
-    lowerCaseName: "vortyx.ai",
-    email: "ahmed@vortyx.ai",
+    id: "kumo-beauty",
+    name: "Kumo Beauty, Inc",
+    lowerCaseName: "kumo beauty, inc",
+    brokerName: "Joshua Boyd",
     status: "approved" as const,
+
     docs: 3,
     lastUpdate: new Date(2024, 6, 15),
     monthlyCashBalanceData: [
@@ -101,13 +104,13 @@ export const _CUSTOMERS: Customer[] = [
     ],
     documents: [
       {
-        id: "fin-statement-2024",
+        id: "fin-statement-2023",
         date: new Date(2024, 6, 26), // July 26, 2024
-        name: "vortyx-financial-statement-2024.pdf",
-        size: 2048, // 2 MB
+        name: "kumo-financial-statement-2023.pdf",
+        size: 2048, // 2048kb
         status: "approved",
         description: "Annual Financial Statement",
-        signedUrl: "https://storage.googleapis.com/vortyx-sandbox-public/fin.pdf",
+        signedUrl: "https://storage.googleapis.com/sarj-sandbox-public/fin.pdf",
         parsedData: [
           { value: "Vortyx.ai", label: "Company Name" },
           { value: "SAR 26,107,500", label: "Annual Revenue" },
@@ -132,13 +135,13 @@ export const _CUSTOMERS: Customer[] = [
         ],
       },
       {
-        id: "cr-2024",
+        id: "business-summary-2024",
         date: new Date(2024, 0, 15), // January 15, 2024
-        name: "vortyx-commercial-registration-2024.pdf",
-        size: 1024, // 1 MB
+        name: "kumo-business-summary-2024.pdf",
+        size: 1024, // 1024kb
         status: "approved",
-        description: "Commercial Registration",
-        signedUrl: "https://storage.googleapis.com/vortyx-sandbox-public/fin.pdf",
+        description: "Business Summary",
+        signedUrl: "https://storage.googleapis.com/sarj-sandbox-public/fin.pdf",
         parsedData: [
           { value: "Vortyx.ai", label: "Company Name" },
           { value: "1010123456", label: "CR Number" },
@@ -168,15 +171,14 @@ export const _CUSTOMERS: Customer[] = [
           },
         ],
       },
-
       {
         id: "bank-statement-2024-q2",
         date: new Date(2024, 6, 1), // July 1, 2024
-        name: "vortyx-bank-statement-q2-2024.pdf",
-        size: 1536, // 1.5 MB
+        name: "kumo-bank-statement-q2-2024.pdf",
+        size: 1536, // 1536kb
         status: "approved",
         description: "Q2 2024 Bank Statement",
-        signedUrl: "https://storage.googleapis.com/vortyx-sandbox-public/fin.pdf",
+        signedUrl: "https://storage.googleapis.com/sarj-sandbox-public/fin.pdf",
         parsedData: [
           { value: "Vortyx.ai", label: "Account Name" },
           { value: "SA2969101010", label: "IBAN" },
@@ -203,11 +205,11 @@ export const _CUSTOMERS: Customer[] = [
       {
         id: "tax-return-2023",
         date: new Date(2024, 3, 15), // April 15, 2024
-        name: "vortyx-tax-return-2023.pdf",
-        size: 1792, // 1.75 MB
+        name: "kumo-tax-return-2023.pdf",
+        size: 1792, // 1792kb
         status: "approved",
         description: "2023 Tax Return",
-        signedUrl: "https://storage.googleapis.com/vortyx-sandbox-public/fin.pdf",
+        signedUrl: "https://storage.googleapis.com/sarj-sandbox-public/fin.pdf",
         parsedData: [
           { value: "Vortyx.ai", label: "Company Name" },
           { value: "300000012345", label: "Tax Identification Number" },
@@ -231,13 +233,15 @@ export const _CUSTOMERS: Customer[] = [
         ],
       },
     ],
+    disabled: false,
   },
   {
-    id: "tawasel",
-    name: "Tawasel Pay",
-    lowerCaseName: "tawasel pay",
-    email: "info@tawaselpay.sa",
+    id: "medivis",
+    name: "Medivis, Inc",
+    lowerCaseName: "medivis, inc",
+    brokerName: "Semir Osmanovic",
     status: "pending" as const,
+
     docs: 2,
     lastUpdate: new Date(2024, 6, 20),
     monthlyCashBalanceData: [
@@ -290,7 +294,7 @@ export const _CUSTOMERS: Customer[] = [
         size: 3072,
         status: "pending",
         description: "2024 Business Plan",
-        signedUrl: "https://storage.googleapis.com/vortyx-sandbox-public/fin.pdf",
+        signedUrl: "https://storage.googleapis.com/sarj-sandbox-public/fin.pdf",
         parsedData: [
           { value: "Tawasel Pay", label: "Company Name" },
           {
@@ -318,13 +322,15 @@ export const _CUSTOMERS: Customer[] = [
         ],
       },
     ],
+    disabled: true,
   },
   {
-    id: "riyal-invest",
-    name: "Riyal Invest",
-    lowerCaseName: "riyal invest",
-    email: "support@riyalinvest.com",
+    id: "forest-hill",
+    name: "Forest Hill Corp",
+    lowerCaseName: "forest hill corp",
+    brokerName: "Anna Boguslavsky",
     status: "rejected" as const,
+
     docs: 1,
     lastUpdate: new Date(2024, 6, 10),
     monthlyCashBalanceData: [
@@ -378,7 +384,7 @@ export const _CUSTOMERS: Customer[] = [
         status: "approved",
         description: "Annual Risk Assessment Report",
 
-        signedUrl: "https://storage.googleapis.com/vortyx-sandbox-public/fin.pdf",
+        signedUrl: "https://storage.googleapis.com/sarj-sandbox-public/fin.pdf",
         parsedData: [
           { value: "Riyal Invest", label: "Company Name" },
           {
@@ -405,6 +411,7 @@ export const _CUSTOMERS: Customer[] = [
         ],
       },
     ],
+    disabled: true,
   },
 ];
 

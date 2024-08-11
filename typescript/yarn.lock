@@ -465,12 +465,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@google-cloud/vertexai@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "@google-cloud/vertexai@npm:1.4.0"
+"@google-cloud/vertexai@npm:^1.4.1":
+  version: 1.4.1
+  resolution: "@google-cloud/vertexai@npm:1.4.1"
   dependencies:
     google-auth-library: "npm:^9.1.0"
-  checksum: 10c0/7bf4c99056036d0bb67abe2d3c9bb26190e229804cadfc009cb9784a2df1a8a80241b139a4394fae56cf0917e4136a2a3a095419babc53b7f2f0dcdc543853d1
+  checksum: 10c0/97cab67e22d495db623b02d7c44a3c955598d932096c9acdee710c6e429dfc011d7ae25662ca9d7a7fbf80631559f5d48094bbaed301ff624885c32807ed7088
   languageName: node
   linkType: hard
 
@@ -3254,7 +3254,7 @@ __metadata:
     eslint-plugin-tailwindcss: "npm:^3.17.4"
     framer-motion: "npm:^11.3.24"
     google-gax: "npm:^4.3.9"
-    lucide-react: "npm:^0.426.0"
+    lucide-react: "npm:^0.427.0"
     next: "npm:^14.2.5"
     postcss: "npm:^8.4.41"
     prettier: "npm:^3.3.3"
@@ -3268,7 +3268,7 @@ __metadata:
     recharts: "npm:^2.12.7"
     request: "npm:^2.88.2"
     swr: "npm:^2.2.5"
-    tailwind-merge: "npm:^2.4.0"
+    tailwind-merge: "npm:^2.5.0"
     tailwindcss: "npm:^3.4.9"
     tailwindcss-animate: "npm:^1.0.7"
     typescript: "npm:^5.5.4"
@@ -3301,7 +3301,7 @@ __metadata:
     "@google-cloud/documentai": "npm:^8.8.0"
     "@google-cloud/pubsub": "npm:^4.5.0"
     "@google-cloud/storage": "npm:^7.12.1"
-    "@google-cloud/vertexai": "npm:^1.4.0"
+    "@google-cloud/vertexai": "npm:^1.4.1"
     "@tabby_ai/hijri-converter": "npm:^1.0.5"
     "@types/eslint": "npm:^8.56.11"
     "@types/prettier": "npm:^3.0.0"
@@ -3309,11 +3309,11 @@ __metadata:
     "@typescript-eslint/parser": "npm:^7.18.0"
     "@vortyx/precedent-iso": "workspace:^"
     axios: "npm:^1.7.3"
-    cheerio: "npm:^1.0.0-rc.12"
+    cheerio: "npm:^1.0.0"
     eslint: "npm:^8.57.0"
     eslint-plugin-simple-import-sort: "npm:^12.1.1"
     mime-types: "npm:^2.1.35"
-    openai: "npm:^4.55.1"
+    openai: "npm:^4.55.4"
     pino: "npm:^9.3.2"
     prettier: "npm:^3.3.3"
     slonik: "npm:^46.0.1"
@@ -4032,18 +4032,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cheerio@npm:^1.0.0-rc.12":
-  version: 1.0.0-rc.12
-  resolution: "cheerio@npm:1.0.0-rc.12"
+"cheerio@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "cheerio@npm:1.0.0"
   dependencies:
     cheerio-select: "npm:^2.1.0"
     dom-serializer: "npm:^2.0.0"
     domhandler: "npm:^5.0.3"
-    domutils: "npm:^3.0.1"
-    htmlparser2: "npm:^8.0.1"
-    parse5: "npm:^7.0.0"
+    domutils: "npm:^3.1.0"
+    encoding-sniffer: "npm:^0.2.0"
+    htmlparser2: "npm:^9.1.0"
+    parse5: "npm:^7.1.2"
     parse5-htmlparser2-tree-adapter: "npm:^7.0.0"
-  checksum: 10c0/c85d2f2461e3f024345b78e0bb16ad8e41492356210470dd1e7d5a91391da9fcf6c0a7cb48a9ba8820330153f0cedb4d0a60c7af15d96ecdb3092299b9d9c0cc
+    parse5-parser-stream: "npm:^7.1.2"
+    undici: "npm:^6.19.5"
+    whatwg-mimetype: "npm:^4.0.0"
+  checksum: 10c0/d0e16925d9c36c879edfaef1c0244c866375a4c7b8d6ccd7ae0ad42da7d26263ea1a3c17b9a1aa5965918deeff2d40ac2e7223824f8e6eca972df3b81316a09f
   languageName: node
   linkType: hard
 
@@ -4874,7 +4878,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"domutils@npm:^3.0.1":
+"domutils@npm:^3.0.1, domutils@npm:^3.1.0":
   version: 3.1.0
   resolution: "domutils@npm:3.1.0"
   dependencies:
@@ -4954,6 +4958,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"encoding-sniffer@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "encoding-sniffer@npm:0.2.0"
+  dependencies:
+    iconv-lite: "npm:^0.6.3"
+    whatwg-encoding: "npm:^3.1.1"
+  checksum: 10c0/b312e0d67f339bec44e021e5210ee8ee90d7b8f9975eb2c79a36fd467eb07709e88dcf62ee20f62ee0d74a13874307d99557852a2de9b448f1e3fb991fc68257
+  languageName: node
+  linkType: hard
+
 "encoding@npm:^0.1.13":
   version: 0.1.13
   resolution: "encoding@npm:0.1.13"
@@ -4982,7 +4996,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"entities@npm:^4.2.0, entities@npm:^4.4.0":
+"entities@npm:^4.2.0, entities@npm:^4.4.0, entities@npm:^4.5.0":
   version: 4.5.0
   resolution: "entities@npm:4.5.0"
   checksum: 10c0/5b039739f7621f5d1ad996715e53d964035f75ad3b9a4d38c6b3804bb226e282ffeae2443624d8fdd9c47d8e926ae9ac009c54671243f0c3294c26af7cc85250
@@ -6280,15 +6294,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"htmlparser2@npm:^8.0.1":
-  version: 8.0.2
-  resolution: "htmlparser2@npm:8.0.2"
+"htmlparser2@npm:^9.1.0":
+  version: 9.1.0
+  resolution: "htmlparser2@npm:9.1.0"
   dependencies:
     domelementtype: "npm:^2.3.0"
     domhandler: "npm:^5.0.3"
-    domutils: "npm:^3.0.1"
-    entities: "npm:^4.4.0"
-  checksum: 10c0/609cca85886d0bf2c9a5db8c6926a89f3764596877492e2caa7a25a789af4065bc6ee2cdc81807fe6b1d03a87bf8a373b5a754528a4cc05146b713c20575aab4
+    domutils: "npm:^3.1.0"
+    entities: "npm:^4.5.0"
+  checksum: 10c0/394f6323efc265bbc791d8c0d96bfe95984e0407565248521ab92e2dc7668e5ceeca7bc6ed18d408b9ee3b25032c5743368a4280d280332d782821d5d467ad8f
   languageName: node
   linkType: hard
 
@@ -6367,7 +6381,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"iconv-lite@npm:0.6, iconv-lite@npm:^0.6.2":
+"iconv-lite@npm:0.6, iconv-lite@npm:0.6.3, iconv-lite@npm:^0.6.2, iconv-lite@npm:^0.6.3":
   version: 0.6.3
   resolution: "iconv-lite@npm:0.6.3"
   dependencies:
@@ -7106,12 +7120,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lucide-react@npm:^0.426.0":
-  version: 0.426.0
-  resolution: "lucide-react@npm:0.426.0"
+"lucide-react@npm:^0.427.0":
+  version: 0.427.0
+  resolution: "lucide-react@npm:0.427.0"
   peerDependencies:
     react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc
-  checksum: 10c0/1721930d59a9f702a2936bda61c32fbc05080cd424ffac825bd8aaab8a87549033e61363056f135e685735e29bf47115315f36b0a3efa3e3e6a56c7c0e0c84d9
+  checksum: 10c0/a7250995879429b0b2e0be4072b98b8d7b99ff1c7e30fcefa8bcf58ccdc45c49bb5ad05babc2a1104e0a4050627e5336db1535e0e309ed6c04550b738d2f8143
   languageName: node
   linkType: hard
 
@@ -7676,9 +7690,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"openai@npm:^4.55.1":
-  version: 4.55.1
-  resolution: "openai@npm:4.55.1"
+"openai@npm:^4.55.4":
+  version: 4.55.4
+  resolution: "openai@npm:4.55.4"
   dependencies:
     "@types/node": "npm:^18.11.18"
     "@types/node-fetch": "npm:^2.6.4"
@@ -7694,7 +7708,7 @@ __metadata:
       optional: true
   bin:
     openai: bin/cli
-  checksum: 10c0/60e9ef7406469a381a60a538d110400d177c65e54ffa63203a6b7d218a1e3090932ed59b2d506158e63d0e8f4254c955500467c7b2bf4a06fac38496bd0cc4e1
+  checksum: 10c0/a491064b1349c692b0be5df718d1917b2ed47a9ebf911f8348d6cd25f525c7a8b528b4b35b0f42010d468154e2a33d79160343c882b3a1f0fb47e0b5fc6f7543
   languageName: node
   linkType: hard
 
@@ -7772,7 +7786,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"parse5@npm:^7.0.0":
+"parse5-parser-stream@npm:^7.1.2":
+  version: 7.1.2
+  resolution: "parse5-parser-stream@npm:7.1.2"
+  dependencies:
+    parse5: "npm:^7.0.0"
+  checksum: 10c0/e236c61000d38ecad369e725a48506b051cebad8abb00e6d4e8bff7aa85c183820fcb45db1559cc90955bdbbdbd665ea94c41259594e74566fff411478dc7fcb
+  languageName: node
+  linkType: hard
+
+"parse5@npm:^7.0.0, parse5@npm:^7.1.2":
   version: 7.1.2
   resolution: "parse5@npm:7.1.2"
   dependencies:
@@ -9492,10 +9515,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwind-merge@npm:^2.4.0":
-  version: 2.4.0
-  resolution: "tailwind-merge@npm:2.4.0"
-  checksum: 10c0/77bd20647d08db78a0bdf7b57d4b904479aee7727f44570f8834d62a1aa56f42d7ae68ac959e3d610c9f188aa164eeefb6c43df4f0c8bb7cfc3418e1575bfecb
+"tailwind-merge@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "tailwind-merge@npm:2.5.0"
+  checksum: 10c0/59c58b489158ec25aced3072c4d023babb32e2d8fb4b55d75b2e18afc1650cbb3e88af7d323696fe7debed35b6633ee8e40203c95ded6a54f06d4eb7f30ceb18
   languageName: node
   linkType: hard
 
@@ -9875,6 +9898,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"undici@npm:^6.19.5":
+  version: 6.19.7
+  resolution: "undici@npm:6.19.7"
+  checksum: 10c0/801d1e66d5bccdd3fcc9ecf1c95b83a593e4867b89e21ed725e35bd4d572b3d3ce1d7feab2a4f2046f65923de70bfafb69ac148c633d1ab30a948d6fec24475a
+  languageName: node
+  linkType: hard
+
 "unique-filename@npm:^3.0.0":
   version: 3.0.0
   resolution: "unique-filename@npm:3.0.0"
@@ -10171,6 +10201,22 @@ __metadata:
   version: 3.0.1
   resolution: "webidl-conversions@npm:3.0.1"
   checksum: 10c0/5612d5f3e54760a797052eb4927f0ddc01383550f542ccd33d5238cfd65aeed392a45ad38364970d0a0f4fea32e1f4d231b3d8dac4a3bdd385e5cf802ae097db
+  languageName: node
+  linkType: hard
+
+"whatwg-encoding@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "whatwg-encoding@npm:3.1.1"
+  dependencies:
+    iconv-lite: "npm:0.6.3"
+  checksum: 10c0/273b5f441c2f7fda3368a496c3009edbaa5e43b71b09728f90425e7f487e5cef9eb2b846a31bd760dd8077739c26faf6b5ca43a5f24033172b003b72cf61a93e
+  languageName: node
+  linkType: hard
+
+"whatwg-mimetype@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "whatwg-mimetype@npm:4.0.0"
+  checksum: 10c0/a773cdc8126b514d790bdae7052e8bf242970cebd84af62fb2f35a33411e78e981f6c0ab9ed1fe6ec5071b09d5340ac9178e05b52d35a9c4bcf558ba1b1551df
   languageName: node
   linkType: hard
 

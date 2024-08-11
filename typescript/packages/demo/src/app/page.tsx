@@ -17,7 +17,7 @@ export default function Home() {
         <Card className="w-full max-w-md border-none shadow-none">
           <CardContent className="space-y-8">
             <h1 className="text-center text-3xl font-bold text-black">
-              Vortyx.ai Lending Platform
+              Vortyx Platform
             </h1>
             <div className="space-y-6">
               <p className="text-center text-sm text-gray-600">
@@ -29,8 +29,8 @@ export default function Home() {
                   variant="outline"
                   className="flex w-full items-center justify-between border-black px-4 py-6 text-black transition-colors hover:bg-gray-100"
                 >
-                  <Link href="/lenders">
-                    <span className="grow text-center">For Lenders</span>
+                  <Link href="/brokers">
+                    <span className="grow text-center">For Brokers</span>
                     <ArrowRight size={20} />
                   </Link>
                 </Button>
@@ -40,7 +40,9 @@ export default function Home() {
                   className="flex w-full items-center justify-between border-black px-4 py-6 text-black transition-colors hover:bg-gray-100"
                 >
                   <Link href="/application">
-                    <span className="grow text-center">For Applicants</span>
+                    <span className="grow text-center">
+                      For Business Owners
+                    </span>
                     <ArrowRight size={20} />
                   </Link>
                 </Button>
