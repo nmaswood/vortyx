@@ -120,17 +120,17 @@ export const _CUSTOMERS: Customer[] = [
         ],
         questions: [
           {
-            question: "What was Vortyx.ai's annual revenue in 2024?",
-            answer: "SAR 26,107,500",
+            question: "What was Kumo Beauty's annual revenue in 2023?",
+            answer: "$759,000",
           },
           {
-            question: "What was the company's net profit in 2024?",
-            answer: "SAR 2,360,700",
+            question: "What was the company's net profit in 2023?",
+            answer: "$309,000",
           },
           {
             question:
-              "What is the total asset value of Vortyx.ai according to the 2024 financial statement?",
-            answer: "SAR 15,000,000",
+              "What is the total asset value of Kumo Beauty according to the 2023 financial statement?",
+            answer: "$300,000",
           },
         ],
       },

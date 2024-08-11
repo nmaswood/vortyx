@@ -428,14 +428,12 @@ const EditCustomerDialog = ({ customer }: { customer: Customer }) => {
       <DialogTrigger asChild>
         <Button variant="outline">
           <PenSquare size={16} className="mr-2" />
-          Edit Customer
+          Edit Company
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold">
-            Edit Customer
-          </DialogTitle>
+          <DialogTitle className="text-2xl font-bold">Edit Company</DialogTitle>
         </DialogHeader>
         <form className="space-y-6">
           <div className="space-y-4">
@@ -455,7 +453,7 @@ const EditCustomerDialog = ({ customer }: { customer: Customer }) => {
           </div>
           <div className="space-y-4">
             <Label htmlFor="email" className="text-lg font-semibold">
-              Email
+              Name
             </Label>
             <Input
               id="email"
@@ -477,17 +475,11 @@ const EditCustomerDialog = ({ customer }: { customer: Customer }) => {
     </Dialog>
   );
 };
-
 function CreditAnalysisTab(): React.ReactElement {
   const state = {
     benchmarks: [
       { metric: "Revenue Growth", companyValue: 18.5, industryAverage: 12.8 },
       { metric: "Profit Margin", companyValue: 11.2, industryAverage: 10.2 },
-      //{
-      //metric: "Debt-to-Equity Ratio",
-      //companyValue: 1.2,
-      //industryAverage: 1.5,
-      //},
       {
         metric: "Working Capital Ratio",
         companyValue: 2.1,
@@ -497,14 +489,14 @@ function CreditAnalysisTab(): React.ReactElement {
     sentiment: {
       score: 0.72,
       recentNews: [
-        { title: "Company X Secures Major Contract", sentiment: "Positive" },
+        { title: "Kumo Beauty Secures New Location", sentiment: "Positive" },
         { title: "Industry Outlook Remains Strong", sentiment: "Positive" },
         { title: "Company X Reports Q2 Earnings Beat", sentiment: "Positive" },
         { title: "New Regulations May Impact Sector", sentiment: "Neutral" },
       ],
     },
-    creditLimit: {
-      suggestedLimit: 750000,
+    sellerDiscretionaryEarning: {
+      suggestedLimit: 180000,
       confidence: 0.92,
       factors: [
         "Strong cash flow position",
@@ -513,14 +505,11 @@ function CreditAnalysisTab(): React.ReactElement {
         "Positive industry outlook",
       ],
     },
-    creditScore: {
-      score: 785,
-      confidence: 0.95,
+    growthImprovement: {
       factors: [
-        "Excellent payment history",
-        "Low credit utilization",
-        "Long-standing credit accounts",
-        "Diverse credit mix",
+        "Increase product differentiation",
+        "Increase online presence",
+        "Gain better wholesale prices",
       ],
     },
   };
@@ -530,8 +519,8 @@ function CreditAnalysisTab(): React.ReactElement {
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <IndustryBenchmarking benchmarks={state.benchmarks} />
         <SentimentAnalysis sentiment={state.sentiment} />
-        <CreditLimitOptimization creditLimit={state.creditLimit} />
-        <AIDrivenCreditScore creditScore={state.creditScore} />
+        <SellerDiscretionaryEarning sde={state.sellerDiscretionaryEarning} />
+        <FactorsForGrowthImprovement growthFactors={state.growthImprovement} />
       </div>
     </div>
   );
@@ -743,6 +732,69 @@ function CreditLimitOptimization({ creditLimit }: any) {
               )}
             </ul>
           </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
+export function SellerDiscretionaryEarning({ sde }) {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-xl">Seller Discretionary Earning</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="mb-4 flex items-center justify-between">
+          <div className="flex items-center">
+            <DollarSign className="mr-2 size-6 text-green-500" />
+            <span className="text-2xl font-bold">
+              ${sde.suggestedLimit.toLocaleString()}
+            </span>
+          </div>
+          <Badge variant="secondary">
+            Confidence: {(sde.confidence * 100).toFixed(0)}%
+          </Badge>
+        </div>
+        <Progress value={sde.confidence * 100} className="mb-4 h-2" />
+        <div>
+          <h4 className="mb-2 font-semibold">Key Factors:</h4>
+          <ul className="list-inside list-disc space-y-1">
+            {sde.factors.map((factor, index) => (
+              <li key={index} className="text-sm text-gray-600">
+                {factor}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
+export function FactorsForGrowthImprovement({ growthFactors }: any) {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-xl">
+          Factors for Growth Improvement
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-4">
+          {growthFactors.factors.map((factor, index) => (
+            <div key={index} className="flex items-center space-x-3">
+              <div className="flex size-10 items-center justify-center rounded-full bg-blue-100">
+                <TrendingUp className="size-5 text-blue-600" />
+              </div>
+              <div className="flex-1">
+                <p className="text-sm font-medium text-gray-900">{factor}</p>
+                <p className="text-sm text-gray-500">
+                  Implementing this can lead to significant growth
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </CardContent>
     </Card>

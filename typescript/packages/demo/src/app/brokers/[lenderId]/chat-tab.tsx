@@ -10,25 +10,18 @@ import { Input } from "@/components/ui/input";
 
 const hardcodedQA = [
   {
-    question: "What was Vortyx.ai's annual revenue in 2024?",
-    answer: "Vortyx.ai's annual revenue in 2024 was SAR 26,107,500.",
+    question: "What was Kumo Beauty's annual revenue in 2023?",
+    answer: "Kumo Beauty's annual revenue in 2023 was $759,000.",
   },
   {
-    question: "What is Vortyx.ai's commercial registration number?",
-    answer: "Vortyx.ai's commercial registration number is 1010123456.",
-  },
-  {
-    question: "What was the closing balance for Q2 2024?",
-    answer: "The closing balance for Q2 2024 was SAR 2,300,000.",
-  },
-  {
-    question: "What is Vortyx.ai's main business activity?",
+    question: "What is Kumo Beauty's closing balance for Q2 2024?",
     answer:
-      "According to the commercial registration, Vortyx.ai's main business activity is Software Development and AI Services.",
+      "I apologize, but I don't have specific information about Kumo Beauty's closing balance for Q2 2024. The financial statements provided are for the year 2023.",
   },
   {
-    question: "How much tax did Vortyx.ai pay for the 2023 tax year?",
-    answer: "Vortyx.ai paid SAR 3,100,000 in taxes for the 2023 tax year.",
+    question: "What is Kumo Beauty's main business activity?",
+    answer:
+      "Kumo Beauty's main business activity is selling Korean beauty and health care products for women.",
   },
 ];
 
@@ -54,7 +47,8 @@ export function ChatTab() {
     setMessages([
       {
         type: "bot",
-        content: "Hello! I'm the Vortyx AI Assistant. How can I help you today?",
+        content:
+          "Hello! I'm the Vortyx AI Assistant. How can I help you today?",
       },
     ]);
     setSuggestedQuestions(hardcodedQA.map((qa) => qa.question));
@@ -71,14 +65,9 @@ export function ChatTab() {
         const matchedQA = hardcodedQA.find((qa) =>
           qa.question.toLowerCase().includes(text.toLowerCase()),
         );
-        let botResponse = matchedQA
+        const botResponse = matchedQA
           ? matchedQA.answer
-          : "I'm sorry, I don't have enough context to answer that question. Is there anything else I can help you with regarding Vortyx.ai's financial information or business activities?";
-
-        if (matchedQA) {
-          botResponse +=
-            "\n\nAI Insight: Based on this information, Vortyx.ai appears to be a rapidly growing tech company with a strong focus on AI and software development. Their financial performance indicates a healthy business trajectory.";
-        }
+          : "I'm sorry, I don't have enough context to answer that question. Is there anything else I can help you with regarding Kumo Beauty's financial information or business activities?";
 
         setMessages((prevMessages) => [
           ...prevMessages,
@@ -132,7 +121,7 @@ export function ChatTab() {
                 {message.type === "user" && (
                   <Avatar className="hidden sm:flex">
                     <Image
-                      src="/ahmed.jpeg"
+                      src="/samiah.jpeg"
                       width={40}
                       height={40}
                       alt="Avatar"
@@ -148,7 +137,6 @@ export function ChatTab() {
             <div className="flex justify-start">
               <div className="flex items-center space-x-2 rounded-lg bg-muted p-3">
                 <Loader2 className="size-5 animate-spin" />
-                <p>AI thinking...</p>
               </div>
             </div>
           )}

@@ -33,7 +33,7 @@ export const DisplayTabs: React.FC = () => {
 
   return (
     <div className="flex h-full flex-col">
-      <div className="relative flex w-full flex-row justify-center gap-6 px-4 py-4 md:justify-between">
+      <div className="relative flex w-full flex-row justify-center gap-6 p-4 md:justify-between">
         <div className="flex flex-row  gap-3">
           <Link href="/">
             <Image

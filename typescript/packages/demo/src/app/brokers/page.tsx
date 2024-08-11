@@ -1,4 +1,5 @@
 "use client";
+import { cx } from "class-variance-authority";
 import { Download, Filter, Plus, Search } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React from "react";
@@ -37,10 +38,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { cn } from "@/lib/utils";
 
 import { CUSTOMERS, LoanStatus } from "../customer-data";
-import { cx } from "class-variance-authority";
-import { cn } from "@/lib/utils";
 
 export default function CompanyDashboard() {
   const router = useRouter();

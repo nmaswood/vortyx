@@ -3,6 +3,7 @@
 import {
   Activity,
   ArrowDownRight,
+  ArrowUpRight,
   Calendar,
   CreditCard,
   DollarSign,
@@ -65,12 +66,12 @@ export default function CustomerDetailPage({
   }
 
   const chartData = [
-    { month: "Jan", balance: 2610.75 },
-    { month: "Feb", balance: 2300 },
-    { month: "Mar", balance: 1900 },
-    { month: "Apr", balance: 1600 },
-    { month: "May", balance: 1200 },
-    { month: "Jun", balance: 236.07 },
+    { month: "Jan", balance: 6 },
+    { month: "Feb", balance: 6.2 },
+    { month: "Mar", balance: 6.5 },
+    { month: "Apr", balance: 6.8 },
+    { month: "May", balance: 7.1 },
+    { month: "Jun", balance: 7.59 },
   ];
 
   return (
@@ -116,47 +117,46 @@ export default function CustomerDetailPage({
             <TabsContent value="overview" className="grid grid-cols-1 gap-6">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl">Financial Overview</CardTitle>
+                  <CardTitle className="text-xl">
+                    Yearly Financial Overview
+                  </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm font-medium">Current Balance</p>
-                      <h3 className="text-2xl font-bold">$236.07</h3>
+                      <p className="text-sm font-medium">Last Year Revenue</p>
+                      <h3 className="text-2xl font-bold">$759,000</h3>
                     </div>
-                    <Badge variant={"destructive"}>
-                      <ArrowDownRight className="mr-1 size-3" /> 90.96%
+                    <Badge variant="success">
+                      <ArrowUpRight className="mr-1 size-3" /> +15%
                     </Badge>
                   </div>
                   <Separator />
                   <div>
-                    <p className="mb-2 text-sm font-medium">Monthly Spending</p>
-                    <Progress value={67} className="h-2" />
+                    <p className="mb-2 text-sm font-medium">Yearly Cost</p>
+                    <Progress value={77.7} className="h-2" />
                     <div className="mt-1 flex justify-between text-sm text-muted-foreground">
-                      <span>$1,634 spent</span>
-                      <span>$2,500 budget</span>
+                      <span>$450,000 spent</span>
+                      <span>$579,000 budget</span>
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-1">
-                      <p className="text-sm font-medium">Largest Transaction</p>
+                      <p className="text-sm font-medium">
+                        Seller Discretionary Earning
+                      </p>
                       <div className="flex items-center">
                         <DollarSign className="mr-2 size-4 text-muted-foreground" />
-                        <span className="font-semibold">$523.48</span>
-                      </div>
-                    </div>
-                    <div className="space-y-1">
-                      <p className="text-sm font-medium">Transaction Count</p>
-                      <div className="flex items-center">
-                        <Activity className="mr-2 size-4 text-muted-foreground" />
-                        <span className="font-semibold">47</span>
+                        <span className="font-semibold">$180,000</span>
                       </div>
                     </div>
                     <div className="space-y-1">
                       <p className="text-sm font-medium">Statement Period</p>
                       <div className="flex items-center">
                         <Calendar className="mr-2 size-4 text-muted-foreground" />
-                        <span className="font-semibold">Jun 1 - Jun 30</span>
+                        <span className="font-semibold">
+                          Jan 1 - Dec 31 2023
+                        </span>
                       </div>
                     </div>
                     <div className="space-y-1">
@@ -193,6 +193,7 @@ export default function CustomerDetailPage({
                 </CardContent>
               </Card>
             </TabsContent>
+
             <TabsContent value="analysis" className="grid grid-cols-1 gap-6">
               <AIClassification />
               <DocumentSummary />
