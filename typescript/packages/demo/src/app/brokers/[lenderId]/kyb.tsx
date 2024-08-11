@@ -51,7 +51,8 @@ export function KYBTab() {
   );
 }
 
-function CompanyOverviewSection({ companyData }) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function CompanyOverviewSection({ companyData }: any) {
   return (
     <Card>
       <CardHeader>
@@ -94,7 +95,8 @@ function CompanyOverviewSection({ companyData }) {
   );
 }
 
-function InfoBadge({ icon, text }) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function InfoBadge({ icon, text }: any) {
   return (
     <Badge
       variant="secondary"
@@ -106,7 +108,8 @@ function InfoBadge({ icon, text }) {
   );
 }
 
-function UnclickableLink({ icon, text }) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function UnclickableLink({ icon, text }: any) {
   return (
     <span className="flex items-center space-x-1 rounded-full bg-white px-3 py-1 text-sm text-blue-600 shadow-sm">
       {icon}
@@ -155,7 +158,8 @@ function DealStatusSection() {
   );
 }
 
-function LatestNewsSection({ companyData }) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function LatestNewsSection({ companyData }: any) {
   return (
     <Card>
       <CardHeader>
@@ -165,7 +169,8 @@ function LatestNewsSection({ companyData }) {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        {companyData.recentNews.map((news, index) => (
+        {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+        {companyData.recentNews.map((news: any, index: any) => (
           <div key={index} className="mb-2 rounded-lg bg-gray-50 p-2">
             <p className="text-sm font-medium">{news.title}</p>
             <p className="text-xs text-gray-600">{news.date}</p>
@@ -176,7 +181,8 @@ function LatestNewsSection({ companyData }) {
   );
 }
 
-function KeyPeopleSection({ companyData }) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function KeyPeopleSection({ companyData }: any) {
   return (
     <Card>
       <CardHeader>
@@ -186,7 +192,8 @@ function KeyPeopleSection({ companyData }) {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        {companyData.keyPeople.map((person, index) => (
+        {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+        {companyData.keyPeople.map((person: any, index: any) => (
           <div key={index} className="mb-4">
             <h3 className="text-lg font-semibold">{person.name}</h3>
             <div className="mt-2 grid grid-cols-2 gap-2 text-sm">

@@ -1,8 +1,6 @@
 "use client";
 
 import {
-  Activity,
-  ArrowDownRight,
   ArrowUpRight,
   Calendar,
   CreditCard,
@@ -127,7 +125,7 @@ export default function CustomerDetailPage({
                       <p className="text-sm font-medium">Last Year Revenue</p>
                       <h3 className="text-2xl font-bold">$759,000</h3>
                     </div>
-                    <Badge variant="success">
+                    <Badge>
                       <ArrowUpRight className="mr-1 size-3" /> +15%
                     </Badge>
                   </div>

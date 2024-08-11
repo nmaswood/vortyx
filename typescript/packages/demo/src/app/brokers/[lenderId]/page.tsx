@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  AlertTriangle,
   Award,
   DollarSign,
   FileIcon,
@@ -16,11 +15,7 @@ import {
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import {
-  Area,
-  AreaChart,
   CartesianGrid,
-  Line,
-  LineChart,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -68,11 +63,9 @@ import {
 } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 import { ChatTab } from "./chat-tab";
 import { KYBTab } from "./kyb";
-import Tabular from "./tabular";
 
 type PageProps = {
   params: {
@@ -95,8 +88,6 @@ export default function CustomerDetailPage(props: PageProps) {
   const data = React.useMemo(() => {
     return CUSTOMERS.find((customer) => customer.id === lenderId);
   }, [lenderId]);
-
-  const [viewMode, setViewMode] = useState<"charts" | "table">("charts");
 
   if (!data) {
     return <div>Customer not found</div>;
@@ -622,123 +613,7 @@ function SentimentAnalysis({ sentiment }: any) {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function AIDrivenCreditScore({ creditScore }: any) {
-  const scoreData = [
-    { name: "Score", value: creditScore.score },
-    { name: "Remaining", value: 850 - creditScore.score },
-  ];
-  const COLORS = ["#4f46e5", "#e5e7eb"];
-
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="flex items-center text-lg font-medium">
-          <AlertTriangle className="mr-2 size-5" />
-          AI-Driven Credit Score
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className="flex items-center justify-between">
-          <div className="relative w-2/5">
-            <ResponsiveContainer width="100%" height={200}>
-              <PieChart>
-                <Pie
-                  data={scoreData}
-                  cx="50%"
-                  cy="50%"
-                  startAngle={180}
-                  endAngle={0}
-                  innerRadius={60}
-                  outerRadius={80}
-                  fill="#8884d8"
-                  dataKey="value"
-                >
-                  {scoreData.map((_, index) => (
-                    <Cell
-                      key={`cell-${index}`}
-                      fill={COLORS[index % COLORS.length]}
-                    />
-                  ))}
-                </Pie>
-              </PieChart>
-            </ResponsiveContainer>
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <p className="text-3xl font-bold">{creditScore.score}</p>
-              <p className="text-sm text-gray-600">Credit Score</p>
-            </div>
-          </div>
-          <div className="w-1/2 space-y-2">
-            <p className="text-lg font-semibold">Key Factors:</p>
-            <Badge variant="outline">
-              Confidence: {(creditScore.confidence * 100).toFixed(1)}%
-            </Badge>
-            <div className="space-y-1 text-sm">
-              {creditScore.factors.map(
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                (factor: any, index: any) => (
-                  <div key={index} className="flex items-center">
-                    <span className="mr-2 size-1.5 rounded-full bg-blue-500"></span>
-                    {factor}
-                  </div>
-                ),
-              )}
-            </div>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
-  );
-}
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function CreditLimitOptimization({ creditLimit }: any) {
-  const FORMATTER = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "SAR",
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  });
-
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="flex items-center text-lg font-medium">
-          <DollarSign className="mr-2 size-5" />
-          Credit Limit Optimization
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className="space-y-4">
-          <div className="flex items-center justify-between">
-            <span className="text-3xl font-bold">
-              {FORMATTER.format(creditLimit.suggestedLimit)}
-            </span>
-            <Badge variant="outline">
-              Confidence: {(creditLimit.confidence * 100).toFixed(1)}%
-            </Badge>
-          </div>
-          <Progress
-            value={creditLimit.confidence * 100}
-            className="h-2 w-full"
-          />
-          <div className="space-y-2">
-            <p className="font-medium">Key Factors:</p>
-            <ul className="list-inside list-disc space-y-1 text-sm text-gray-600">
-              {creditLimit.factors.map(
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                (factor: any, index: any) => (
-                  <li key={index}>{factor}</li>
-                ),
-              )}
-            </ul>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
-  );
-}
-
-export function SellerDiscretionaryEarning({ sde }) {
+function SellerDiscretionaryEarning({ sde }: any) {
   return (
     <Card>
       <CardHeader>
@@ -760,7 +635,8 @@ export function SellerDiscretionaryEarning({ sde }) {
         <div>
           <h4 className="mb-2 font-semibold">Key Factors:</h4>
           <ul className="list-inside list-disc space-y-1">
-            {sde.factors.map((factor, index) => (
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+            {sde.factors.map((factor: any, index: any) => (
               <li key={index} className="text-sm text-gray-600">
                 {factor}
               </li>
@@ -772,7 +648,8 @@ export function SellerDiscretionaryEarning({ sde }) {
   );
 }
 
-export function FactorsForGrowthImprovement({ growthFactors }: any) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function FactorsForGrowthImprovement({ growthFactors }: any) {
   return (
     <Card>
       <CardHeader>
@@ -782,7 +659,8 @@ export function FactorsForGrowthImprovement({ growthFactors }: any) {
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
-          {growthFactors.factors.map((factor, index) => (
+          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+          {growthFactors.factors.map((factor: any, index: any) => (
             <div key={index} className="flex items-center space-x-3">
               <div className="flex size-10 items-center justify-center rounded-full bg-blue-100">
                 <TrendingUp className="size-5 text-blue-600" />
