@@ -46,6 +46,17 @@ export default function Home() {
                     <ArrowRight size={20} />
                   </Link>
                 </Button>
+
+                <Button
+                  asChild
+                  variant="outline"
+                  className="flex w-full items-center justify-between border-black px-4 py-6 text-black transition-colors hover:bg-gray-100"
+                >
+                  <Link href="/buyers">
+                    <span className="grow text-center">For Buyers</span>
+                    <ArrowRight size={20} />
+                  </Link>
+                </Button>
               </div>
             </div>
           </CardContent>

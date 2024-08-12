@@ -43,3 +43,22 @@ resource "vercel_deployment" "git" {
   ref        = "main"
   production = true
 }
+
+
+
+resource "vercel_project_domain" "domain" {
+  team_id    = var.vercel_team_id
+  project_id = vercel_project.fe.id
+  domain     = "www.broker-demo.vortyx.ai"
+}
+
+resource "vercel_project_domain" "bare_domain" {
+  team_id    = var.vercel_team_id
+  project_id = vercel_project.fe.id
+
+  domain = "broker-demo.vortyx.ai"
+
+  redirect             = vercel_project_domain.domain.domain
+  redirect_status_code = 308
+}
+
