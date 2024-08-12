@@ -1,17 +1,30 @@
 "use client";
-import { Separator } from "@/components/ui/separator";
-import React, { useState } from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Briefcase,
+  Calendar,
+  DollarSign,
+  Mail,
+  MapPin,
+  Phone,
+  Store,
+  Target,
+  TrendingUp,
+  User,
+} from "lucide-react";
+import React from "react";
+
+import { Badge } from "@/components/ui/badge";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Separator } from "@/components/ui/separator";
 import {
   Table,
   TableBody,
@@ -20,36 +33,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
-
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-
-import {
-  User,
-  Mail,
-  Phone,
-  MapPin,
-  Target,
-  DollarSign,
-  Briefcase,
-  Building,
-  Users,
-  Calendar,
-  Globe,
-  ChevronRight,
-  ArrowUpRight,
-  Heart,
-  Store,
-  Scissors,
-  Coffee,
-  Plus,
-} from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useToast } from "@/components/ui/use-toast";
 
 // Define types for our data structures
 type BuyerProfile = {
@@ -72,18 +57,8 @@ type DealMatch = {
   broker: string;
   matchScore: number;
 };
-const businessInterests = [
-  //{ type: "Med Spa", icon: Spa },
-  { type: "Beauty Clinic", icon: Heart },
-  { type: "Beauty Store", Icon: Store },
-  { type: "Hair Salon", Icon: Scissors },
-  { type: "Café", Icon: Coffee },
-];
 
-// Main component
 const BuyerDashboard: React.FC = () => {
-  const [selectedDeal, setSelectedDeal] = useState<DealMatch | null>(null);
-
   // Mock data for buyer profile
   const buyerProfile: BuyerProfile = {
     name: "John Smith",
@@ -127,13 +102,17 @@ const BuyerDashboard: React.FC = () => {
     },
   ];
 
-  // Handler for deal click
-  const handleDealClick = (deal: DealMatch): void => {
-    setSelectedDeal(deal);
+  const { toast } = useToast();
+
+  const handleRequestDetails = (deal: DealMatch) => {
+    toast({
+      title: "Request Sent",
+      description: `Your request for details on ${deal.name} has been sent to the broker.`,
+    });
   };
 
   return (
-    <div className="flex h-full max-h-full flex-col overflow-auto p-8 w-full">
+    <div className="flex size-full max-h-full flex-col overflow-auto p-8">
       <div className="mb-6 flex items-center justify-between">
         <Breadcrumb>
           <BreadcrumbList>
@@ -152,11 +131,11 @@ const BuyerDashboard: React.FC = () => {
           <TabsTrigger value="matches">Deal Matches</TabsTrigger>
         </TabsList>
         <TabsContent value="profile">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             <Card className="md:col-span-2">
               <CardHeader>
                 <CardTitle className="flex items-center text-xl font-bold">
-                  <User className="mr-2 h-6 w-6" />
+                  <User className="mr-2 size-6" />
                   Overview
                 </CardTitle>
               </CardHeader>
@@ -188,15 +167,15 @@ const BuyerDashboard: React.FC = () => {
                   <h3 className="font-semibold">Acquisition Criteria</h3>
                   <div className="flex flex-wrap gap-2">
                     <Badge variant="secondary" className="flex items-center">
-                      <Target className="mr-1 h-3 w-3" />
+                      <Target className="mr-1 size-3" />
                       {buyerProfile.purchaseLocations.join(", ")}
                     </Badge>
                     <Badge variant="secondary" className="flex items-center">
-                      <DollarSign className="mr-1 h-3 w-3" />
+                      <DollarSign className="mr-1 size-3" />
                       SDE: {buyerProfile.targetSDE}
                     </Badge>
                     <Badge variant="secondary" className="flex items-center">
-                      <DollarSign className="mr-1 h-3 w-3" />
+                      <DollarSign className="mr-1 size-3" />
                       Buy Range: {buyerProfile.targetBuyRange}
                     </Badge>
                   </div>
@@ -207,7 +186,7 @@ const BuyerDashboard: React.FC = () => {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center text-xl font-bold">
-                  <Briefcase className="mr-2 h-5 w-5" />
+                  <Briefcase className="mr-2 size-5" />
                   Business Interests
                 </CardTitle>
               </CardHeader>
@@ -238,7 +217,7 @@ const BuyerDashboard: React.FC = () => {
             <Card className="md:col-span-3">
               <CardHeader>
                 <CardTitle className="flex items-center text-xl font-bold">
-                  <Calendar className="mr-2 h-5 w-5" />
+                  <Calendar className="mr-2 size-5" />
                   Recent Activity
                 </CardTitle>
               </CardHeader>
@@ -280,81 +259,87 @@ const BuyerDashboard: React.FC = () => {
           </div>
         </TabsContent>
 
-        <TabsContent value="matches" className="flex w-full flex-col">
-          <Card className="flex w-full flex-col">
+        <TabsContent value="matches" className="w-full">
+          <Card className="w-full">
             <CardHeader>
-              <CardTitle>Deal Matches</CardTitle>
+              <CardTitle className="flex items-center text-xl font-bold">
+                <Target className="mr-2 size-5" />
+                Deal Matches
+              </CardTitle>
             </CardHeader>
-            <CardContent className="flex w-full flex-col">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Company</TableHead>
-                    <TableHead>Location</TableHead>
-                    <TableHead>Price</TableHead>
-                    <TableHead>SDE</TableHead>
-                    <TableHead>Match Score</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {dealMatches.map((deal) => (
-                    <TableRow
-                      key={deal.id}
-                      className="cursor-pointer hover:bg-gray-50"
-                      onClick={() => handleDealClick(deal)}
-                    >
-                      <TableCell className="font-medium">{deal.name}</TableCell>
-                      <TableCell>{deal.state}</TableCell>
-                      <TableCell>{deal.buyPrice}</TableCell>
-                      <TableCell>{deal.sde}</TableCell>
-                      <TableCell>
-                        <Badge>{deal.matchScore}%</Badge>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+            <CardContent>
+              <div className="space-y-4">
+                {dealMatches.map((deal) => (
+                  <Card
+                    key={deal.id}
+                    className="transition-colors hover:bg-gray-50"
+                  >
+                    <CardContent className="p-4">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-4">
+                          <div className="rounded-full bg-blue-100 p-2 text-blue-700">
+                            <Store className="size-6" />
+                          </div>
+                          <div>
+                            <h3 className="text-lg font-semibold">
+                              {deal.name}
+                            </h3>
+                            <p className="flex items-center text-sm text-gray-500">
+                              <MapPin className="mr-1 size-4" /> {deal.state}
+                            </p>
+                          </div>
+                        </div>
+                        <Badge
+                          variant="secondary"
+                          className="text-lg font-semibold"
+                        >
+                          {deal.matchScore}% Match
+                        </Badge>
+                      </div>
+                      <div className="mt-4 grid grid-cols-2 gap-4">
+                        <div className="flex items-center space-x-2">
+                          <DollarSign className="size-5 text-green-600" />
+                          <div>
+                            <p className="text-sm text-gray-500">
+                              Asking Price
+                            </p>
+                            <p className="font-semibold">{deal.buyPrice}</p>
+                          </div>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <TrendingUp className="size-5 text-blue-600" />
+                          <div>
+                            <p className="text-sm text-gray-500">SDE</p>
+                            <p className="font-semibold">{deal.sde}</p>
+                          </div>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <User className="size-5 text-purple-600" />
+                          <div>
+                            <p className="text-sm text-gray-500">Broker</p>
+                            <p className="font-semibold">{deal.broker}</p>
+                          </div>
+                        </div>
+                        <div className="flex items-center justify-end">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => handleRequestDetails(deal)}
+                            className="flex items-center"
+                          >
+                            <Mail className="mr-2 size-4" />
+                            Request Details
+                          </Button>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </CardContent>
           </Card>
         </TabsContent>
       </Tabs>
-
-      {selectedDeal && (
-        <Dialog
-          open={!!selectedDeal}
-          onOpenChange={() => setSelectedDeal(null)}
-        >
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>{selectedDeal.name}</DialogTitle>
-            </DialogHeader>
-            <div className="mt-2">
-              <p>
-                <strong>Location:</strong> {selectedDeal.state}
-              </p>
-              <p>
-                <strong>Asking Price:</strong> {selectedDeal.buyPrice}
-              </p>
-              <p>
-                <strong>Seller Discretionary Earnings:</strong>{" "}
-                {selectedDeal.sde}
-              </p>
-              <p>
-                <strong>Broker:</strong> {selectedDeal.broker}
-              </p>
-              <p>
-                <strong>Match Score:</strong> {selectedDeal.matchScore}%
-              </p>
-            </div>
-            <div className="flex justify-end space-x-2 mt-4">
-              <Button onClick={() => setSelectedDeal(null)} variant="outline">
-                Close
-              </Button>
-              <Button>Request More Info</Button>
-            </div>
-          </DialogContent>
-        </Dialog>
-      )}
     </div>
   );
 };
@@ -365,7 +350,7 @@ const ProfileField: React.FC<{
   value: string;
 }> = ({ icon, label, value }) => (
   <div className="flex items-center space-x-3">
-    <div className="flex-shrink-0 text-gray-400">{icon}</div>
+    <div className="shrink-0 text-gray-400">{icon}</div>
     <div>
       <Label className="text-sm text-gray-500">{label}</Label>
       <p className="font-medium">{value}</p>
