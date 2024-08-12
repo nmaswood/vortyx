@@ -3,7 +3,7 @@ import { Separator } from "@/components/ui/separator";
 import { DisplayTabs } from "../display-tabs";
 
 export const metadata = {
-  title: "vortyx.ai | Lender Platform",
+  title: "Vortyx | Lender Platform",
 };
 
 export default function RootLayout({

@@ -30,7 +30,7 @@ export default function Home() {
                   className="flex w-full items-center justify-between border-black px-4 py-6 text-black transition-colors hover:bg-gray-100"
                 >
                   <Link href="/brokers">
-                    <span className="grow text-center">For Brokers</span>
+                    <span className="grow text-center">Brokers</span>
                     <ArrowRight size={20} />
                   </Link>
                 </Button>
@@ -40,9 +40,7 @@ export default function Home() {
                   className="flex w-full items-center justify-between border-black px-4 py-6 text-black transition-colors hover:bg-gray-100"
                 >
                   <Link href="/application">
-                    <span className="grow text-center">
-                      For Business Owners
-                    </span>
+                    <span className="grow text-center">Business Owners</span>
                     <ArrowRight size={20} />
                   </Link>
                 </Button>
@@ -53,7 +51,7 @@ export default function Home() {
                   className="flex w-full items-center justify-between border-black px-4 py-6 text-black transition-colors hover:bg-gray-100"
                 >
                   <Link href="/buyers">
-                    <span className="grow text-center">For Buyers</span>
+                    <span className="grow text-center">Buyers</span>
                     <ArrowRight size={20} />
                   </Link>
                 </Button>

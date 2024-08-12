@@ -8,7 +8,7 @@ import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "vortyx.ai | Platform",
+  title: "Vortyx | Platform",
 };
 
 export default function RootLayout({
